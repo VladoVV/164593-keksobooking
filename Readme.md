@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
 * Студент: [Vladimir Volkov](https://up.htmlacademy.ru/javascript/8/user/164593).
-* Наставник: `Неизвестно`.
+* Наставник: `Борис Ванюшин`.
 
 ---
 
