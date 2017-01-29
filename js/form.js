@@ -5,10 +5,12 @@ var pinElement = document.querySelector('.pin'); // выбираем первы�
 
 //---отслеживаем событие клик на первом попавшемся элементе с классом пин---//
 pinElement.addEventListener('click', function () {
+  
   for (var i = 0; i < pinElements.length; i++) {
     pinElements[i].classList.remove('pin--active'); // перебираем все элементы с классом pin и удаляем класс pin--active
   }
-  this.classList.add('pin--active'); // элементу на котором произошло событие добавляем класс pin--active
+  
+  this.parentNode.classList.add('pin--active'); // элементу на котором произошло событие добавляем класс pin--active
   dialog.style.display = "block"; // открываем окно диалог 
 });
 
