@@ -66,18 +66,63 @@ var capacity = document.getElementById('capacity').options;
 var roomNumberSelected = roomNumber.selectedIndex;
 var capacitySelected = capacity.selectedIndex;
 
-//синхронизация данных между кол-вом комнат и кол-вом гостей (time & timeout)//
+//синхронизация данных между кол-вом комнат и кол-вом гостей (room_number & capacity)//
 
-//---функция проверки и синхронного изменения значения в списке timeout---//
-function changeTime(event) {
-  if (timeSelected == timeSelectedOut) {
-    timeSelectOut.selectedIndex = timeSelect.selectedIndex; //устанавливаем в селект timeOut такое же значение какое выбрали в time
+//---функция проверки и синхронного изменения значения в списке capacity---//
+function changeRoomNumber(event) {
+ if (roomNumberSelected == capacitySelected) { 
+    capacity.selectedIndex = roomNumber.selectedIndex; 
   }
 }
 
-//---функция проверки и синхронного изменения значения в списке time---//
-function changeTimeOut(event) {
-  if (timeSelectedOut == timeSelected) {
-    timeSelect.selectedIndex = timeSelectOut.selectedIndex; //устанавливаем в селект timeOut такое же значение какое выбрали в time
-  }
+//---функция проверки и синхронного изменения значения в списке room_number---//
+function changeCapacity(event) {
+  if (capacitySelected == roomNumberSelected) { 
+    roomNumber.selectedIndex = capacity.selectedIndex; 
+  } 
 }
+
+
+
+//переменные для синхронизации данных между типом жилья и стоимостью (type & price)
+var typeApart = document.getElementById('type').options;
+var price = document.getElementById('price');
+var typeApartSelected = typeApart.selectedIndex;
+
+
+
+  
+  function changeEventHandler(event) {
+  alert('You like ' + event.target.value + ' ice cream.');
+  
+  if (document.getElementById('type').options[i] == 0) { 
+    console.log(document.getElementById('type').options[i]);
+    price.value = 1000; 
+  } else if (document.getElementById('type').options[i] == 1) {
+    price.value = 0;
+  } else if (document.getElementById('type').options[i] == 2) {
+    price.value = 5000;
+  }
+
+
+  
+}
+
+
+//????синхронизация данных между типом жилья и стоимостью (type & price)//
+
+//---????функция проверки и изменения значения price---//
+
+console.log(document.getElementById('type').options.length);
+console.log(document.getElementById('type').options);
+
+//function changeType(event) {
+// if (typeApartSelected == 0) { 
+//    price.value = 1000; 
+//  } else if (typeApartSelected == 1) {
+//    price.value = 0;
+//  } else if (typeApartSelected == 2) {
+//    price.value = 5000;
+//  }
+//}
+//  changeType(event);

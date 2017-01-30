@@ -125,10 +125,10 @@
           <div class="form__row">
             <div class="form__element">
               <label for="type">Тип жилья</label>
-              <select id="type">
-                <option selected>Квартира</option>
-                <option>Лачуга</option>
-                <option>Дворец</option>
+              <select id="type" onchange="changeEventHandler(event);">
+                <option >Квартира</option>
+                <option >Лачуга</option>
+                <option selected>Дворец</option>
               </select>
             </div>
             <div class="form__element">
@@ -148,8 +148,8 @@
             <div class="form__element">
               <label for="capacity">Количество мест</label>
               <select id="capacity" onchange="changeCapacity(event);">
-                <option selected>для 3 гостей</option>
-                <option>не для гостей</option>
+                <option selected>не для гостей</option>
+                <option>для 3 гостей</option>
               </select>
             </div>
           </div>
