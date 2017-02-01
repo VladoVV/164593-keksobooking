@@ -76,7 +76,7 @@ roomNumber.addEventListener('change', function () {
 
 //---функция проверки и синхронного изменения значения в списке room_number---//
 capacity.addEventListener('change', function () {
-  return roomNumber.selectedIndex = capacity.selectedIndex; 
+  roomNumber.selectedIndex = capacity.selectedIndex; 
 });
 
 
