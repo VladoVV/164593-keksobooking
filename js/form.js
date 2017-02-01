@@ -1,15 +1,15 @@
 'use strick';
 
 var pinElements = document.querySelectorAll('.pin'); // выбираем все элементы с классом pin
-var pinElement = document.querySelector('.pin'); // выбираем первый попавшейся элемент с классом pin
+//var pinElements[0] = document.querySelector('.pin'); // выбираем первый попавшейся элемент с классом pin
 
 //---переменные для закрытия окна диалог---//
 var dialog = document.querySelector('.dialog'); // ищем окно диалог
 var dialogClose = dialog.querySelector('.dialog__close'); // ищем эемент для закрытия окна диалог
 
 //переменные для синхронизации данных между временем заезда и временем выезда (time & timeout)
-var timeSelect = document.getElementById('time');// получаем список вариантов для select time
-var timeOutSelect = document.getElementById('timeout');// получаем список вариантов для select timeout
+var timeSelect = document.getElementById('time'); // получаем список вариантов для select time
+var timeOutSelect = document.getElementById('timeout'); // получаем список вариантов для select timeout
 
 //переменные для синхронизации данных между кол-вом комнат и кол-вом гостей (time & timeout)
 var roomNumber = document.getElementById('room_number');
@@ -23,8 +23,8 @@ var prices = [1000, 0, 5000];
 // перебираем все элементы с классом и удаляем класс//
 function removeClass(collect, className) {
   for (var j = 0; j < collect.length; j++) {
-      collect[j].classList.remove(className); 
-    }
+    collect[j].classList.remove(className);
+  }
 }
 
 //---создаем цикл для отслеживания события на каждом элементе из коллекции с классом пин---//
@@ -37,7 +37,6 @@ for (var i = 0; i < pinElements.length; i++) {
 }
 
 
-
 //---закрываем окно диалог при клике на dialog__close ---//
 dialogClose.addEventListener('click', function () {
   dialog.style.display = "none"; //добавляем окну диалог свойство display: none
@@ -47,63 +46,70 @@ dialogClose.addEventListener('click', function () {
 
 //---синхронизации данных между типом жилья и стоимостью (type & price)---//
 //изменяем стоимсть в зависимости от типа жилья
-typeApart.addEventListener('change', function() {
-//  if (typeApart.selectedIndex === 0) {
-//    price.value = 1000;
-//  } else if (typeApart.selectedIndex === 1) {
-//    price.value = 0;
-//  } else if (typeApart.selectedIndex === 2) {
-//    price.value = 5000;
-//  }
+typeApart.addEventListener('change', function () {
+  //  if (typeApart.selectedIndex === 0) {
+  //    price.value = 1000;
+  //  } else if (typeApart.selectedIndex === 1) {
+  //    price.value = 0;
+  //  } else if (typeApart.selectedIndex === 2) {
+  //    price.value = 5000;
+  //  }
   price.value = prices[typeApart.selectedIndex];
 });
 
 //изменяем тип жилья в зависимости от стоимости
-price.addEventListener('change', function() {
+price.addEventListener('change', function () {
   if (price.value === 0) {
     typeApart.selectedIndex = 1;
   } else if (price.value >= 1000 && price.value < 5000) {
     typeApart.selectedIndex = 0;
   } else if (price.value >= 5000) {
-    typeApart.selectedIndex = 2; 
+    typeApart.selectedIndex = 2;
   }
 });
 
 
 //синхронизация данных между кол-вом комнат и кол-вом гостей (room_number & capacity)//
 //---функция проверки и синхронного изменения значения в списке capacity---//
-roomNumber.addEventListener('change', function() {
-  if (roomNumber.selectedIndex === 0) { 
-    return capacity.selectedIndex = 0; 
-  } 
-  if (roomNumber.selectedIndex === 1) {
-    return capacity.selectedIndex = 1;
-  } 
+roomNumber.addEventListener('change', function () {
   if (roomNumber.selectedIndex === 2) {
     return capacity.selectedIndex = 1;
+  } else {
+    capacity.selectedIndex = roomNumber.selectedIndex
   }
+
+  //  if (roomNumber.selectedIndex === 0) { 
+  //    return capacity.selectedIndex = 0; 
+  //  } 
+  //  if (roomNumber.selectedIndex === 1) {
+  //    return capacity.selectedIndex = 1;
+  //  } 
+  //  if (roomNumber.selectedIndex === 2) {
+  //    return capacity.selectedIndex = 1;
+  //  }
 });
 
 //---функция проверки и синхронного изменения значения в списке room_number---//
-capacity.addEventListener('change', function() {
-  if (capacity.selectedIndex === 0) {
-    return roomNumber.selectedIndex = 0;
-  } 
-  if (capacity.selectedIndex === 1) {
-    return roomNumber.selectedIndex = 1;
-  } 
+capacity.addEventListener('change', function () {
+  return roomNumber.selectedIndex = capacity.selectedIndex;
+  //  if (capacity.selectedIndex === 0) {
+  //    return roomNumber.selectedIndex = 0;
+  //  } 
+  //  if (capacity.selectedIndex === 1) {
+  //    return roomNumber.selectedIndex = 1;
+  //  } 
 });
 
 
 //---синхронизация данных между временем заезда и временем выезда (time & timeout)---//
 //функция проверки и синхронного изменения значения в списке timeout
-timeSelect.addEventListener('change', function() {
-    timeOutSelect.selectedIndex = timeSelect.selectedIndex;
+timeSelect.addEventListener('change', function () {
+  timeOutSelect.selectedIndex = timeSelect.selectedIndex;
 });
 
 //функция проверки и синхронного изменения значения в списке time
-timeOutSelect.addEventListener('change', function() {
-    timeSelect.selectedIndex = timeOutSelect.selectedIndex;
+timeOutSelect.addEventListener('change', function () {
+  timeSelect.selectedIndex = timeOutSelect.selectedIndex;
 });
 
 
