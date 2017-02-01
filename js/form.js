@@ -53,13 +53,13 @@ typeApart.addEventListener('change', function () {
 //изменяем тип жилья в зависимости от стоимости
 price.addEventListener('change', function () {
   if (price.value >= 1000 && price.value < 5000) {
-    return typeApart.selectedIndex = 0;
+    typeApart.selectedIndex = 0;
   }
   if (price.value === 0) {
-    return typeApart.selectedIndex = 1;
+    typeApart.selectedIndex = 1;
   }
   if (price.value >= 5000) {
-    return typeApart.selectedIndex = 2;
+    typeApart.selectedIndex = 2;
   }
 });
 
