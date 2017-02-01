@@ -46,7 +46,7 @@ var prices = [1000, 0, 5000];
 //---синхронизации данных между типом жилья и стоимостью (type & price)---//
 //изменяем стоимсть в зависимости от типа жилья
 typeApart.addEventListener('change', function () {
-  price.value = prices[typeApart.selectedIndex];
+  price.min = price.value = prices[typeApart.selectedIndex];
 });
 
 
@@ -68,9 +68,9 @@ price.addEventListener('change', function () {
 //---функция проверки и синхронного изменения значения в списке capacity---//
 roomNumber.addEventListener('change', function () {
   if (roomNumber.selectedIndex === 2) {
-    return capacity.selectedIndex = 1;
+    capacity.selectedIndex = 1;
   } else {
-    capacity.selectedIndex = roomNumber.selectedIndex
+    capacity.selectedIndex = roomNumber.selectedIndex;
   }
 });
 
