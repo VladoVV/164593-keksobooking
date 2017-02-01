@@ -1,7 +1,6 @@
 'use strick';
 
 var pinElements = document.querySelectorAll('.pin'); // выбираем все элементы с классом pin
-//var pinElements[0] = document.querySelector('.pin'); // выбираем первый попавшейся элемент с классом pin
 
 //---переменные для закрытия окна диалог---//
 var dialog = document.querySelector('.dialog'); // ищем окно диалог
@@ -18,12 +17,12 @@ var capacity = document.getElementById('capacity');
 //переменные для синхронизации данных между типом жилья и стоимостью (type & price)
 var typeApart = document.getElementById('type');
 var price = document.getElementById('price');
-var prices = [1000, 0, 5000];
+
 
 // перебираем все элементы с классом и удаляем класс//
-function removeClass(collect, className) {
-  for (var j = 0; j < collect.length; j++) {
-    collect[j].classList.remove(className);
+function removeClass(collection, className) {
+  for (var j = 0; j < collection.length; j++) {
+    collection[j].classList.remove(className);
   }
 }
 
@@ -43,28 +42,24 @@ dialogClose.addEventListener('click', function () {
   removeClass(pinElements, 'pin--active');
 });
 
-
+var prices = [1000, 0, 5000];
 //---синхронизации данных между типом жилья и стоимостью (type & price)---//
 //изменяем стоимсть в зависимости от типа жилья
 typeApart.addEventListener('change', function () {
-  //  if (typeApart.selectedIndex === 0) {
-  //    price.value = 1000;
-  //  } else if (typeApart.selectedIndex === 1) {
-  //    price.value = 0;
-  //  } else if (typeApart.selectedIndex === 2) {
-  //    price.value = 5000;
-  //  }
   price.value = prices[typeApart.selectedIndex];
 });
 
+
 //изменяем тип жилья в зависимости от стоимости
 price.addEventListener('change', function () {
+  if (price.value >= 1000 && price.value < 5000) {
+    return typeApart.selectedIndex = 0;
+  }
   if (price.value === 0) {
-    typeApart.selectedIndex = 1;
-  } else if (price.value >= 1000 && price.value < 5000) {
-    typeApart.selectedIndex = 0;
-  } else if (price.value >= 5000) {
-    typeApart.selectedIndex = 2;
+    return typeApart.selectedIndex = 1;
+  }
+  if (price.value >= 5000) {
+    return typeApart.selectedIndex = 2;
   }
 });
 
@@ -77,27 +72,11 @@ roomNumber.addEventListener('change', function () {
   } else {
     capacity.selectedIndex = roomNumber.selectedIndex
   }
-
-  //  if (roomNumber.selectedIndex === 0) { 
-  //    return capacity.selectedIndex = 0; 
-  //  } 
-  //  if (roomNumber.selectedIndex === 1) {
-  //    return capacity.selectedIndex = 1;
-  //  } 
-  //  if (roomNumber.selectedIndex === 2) {
-  //    return capacity.selectedIndex = 1;
-  //  }
 });
 
 //---функция проверки и синхронного изменения значения в списке room_number---//
 capacity.addEventListener('change', function () {
-  return roomNumber.selectedIndex = capacity.selectedIndex;
-  //  if (capacity.selectedIndex === 0) {
-  //    return roomNumber.selectedIndex = 0;
-  //  } 
-  //  if (capacity.selectedIndex === 1) {
-  //    return roomNumber.selectedIndex = 1;
-  //  } 
+  return roomNumber.selectedIndex = capacity.selectedIndex; 
 });
 
 
@@ -111,9 +90,3 @@ timeSelect.addEventListener('change', function () {
 timeOutSelect.addEventListener('change', function () {
   timeSelect.selectedIndex = timeOutSelect.selectedIndex;
 });
-
-
-//console.log(document.getElementById('time').options.length); получаем длинну списка
-//console.log(document.getElementById('type').options);
-//var timeSelect = document.getElementById('time').options;// получаем список вариантов для select time
-//var timeOutSelect = document.getElementById('timeout').options;// получаем список вариантов для select timeout
