@@ -17,7 +17,34 @@ var capacity = document.getElementById('capacity');
 // переменные для синхронизации данных между типом жилья и стоимостью (type & price)
 var typeApart = document.getElementById('type');
 var price = document.getElementById('price');
+var minPriceApart = 1000;
+var minPricePalace = 10000;
+var minPriceShack = 0;
+var prices = [minPriceApart, minPriceShack, minPricePalace];
+var maxValuePrice = 1000000;
+var minValuePrice = 1000;
+var titleAd = document.getElementById('title');
+var titleMinLength = 30;
+var titleMaxLength = 100;
+var adressApart = document.getElementById('address');
 
+//задаем ограничения для полей формы
+function setValues() {
+  price.required = true;
+  if (price.value > maxValuePrice) {
+    price.value = maxValuePrice;
+  };
+  if (price.value < minValuePrice) {
+    price.value = minValuePrice;
+  };
+
+  titleAd.minLength = titleMinLength;
+  titleAd.maxLength = titleMaxLength;
+  titleAd.required = true;
+
+  adressApart.required = true;
+}
+setValues();
 
 //  перебираем все элементы с классом и удаляем класс//
 function removeClass(collection, className) {
@@ -42,7 +69,7 @@ dialogClose.addEventListener('click', function () {
   removeClass(pinElements, 'pin--active');
 });
 
-var prices = [1000, 0, 5000];
+
 // ---синхронизации данных между типом жилья и стоимостью (type & price)---//
 // изменяем стоимсть в зависимости от типа жилья
 typeApart.addEventListener('change', function () {
@@ -52,13 +79,13 @@ typeApart.addEventListener('change', function () {
 
 // изменяем тип жилья в зависимости от стоимости
 price.addEventListener('change', function () {
-  if (price.value >= 1000 && price.value < 10000) {
+  if (price.value >= minPriceApart && price.value < minPricePalace) {
     typeApart.selectedIndex = 0;
   }
-  if (price.value === 0) {
+  if (price.value >= minPriceShack && price.value < minPriceApart) {
     typeApart.selectedIndex = 1;
   }
-  if (price.value >= 10000) {
+  if (price.value >= minPricePalace) {
     typeApart.selectedIndex = 2;
   }
 });
