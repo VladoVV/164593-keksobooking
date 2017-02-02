@@ -31,13 +31,16 @@ var adressApart = document.getElementById('address');
 // задаем ограничения для полей формы
 function setValues() {
   price.required = true;
+  
+  price.addEventListener('blur', function maxMinPrice() {
   if (price.value > maxValuePrice) {
     price.value = maxValuePrice;
   }
   if (price.value < minValuePrice) {
     price.value = minValuePrice;
   }
-
+});
+  
   titleAd.minLength = titleMinLength;
   titleAd.maxLength = titleMaxLength;
   titleAd.required = true;
@@ -58,14 +61,14 @@ for (var i = 0; i < pinElements.length; i++) {
   pinElements[i].addEventListener('click', function () {
     removeClass(pinElements, 'pin--active');
     event.currentTarget.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
-    dialog.style.display = 'block'; //  открываем окно диалог
+    dialog.classList.remove('display__none'); //  открываем окно диалог
   });
 }
 
 
 // ---закрываем окно диалог при клике на dialog__close ---//
 dialogClose.addEventListener('click', function () {
-  dialog.style.display = 'none'; // добавляем окну диалог свойство display: none
+  dialog.classList.add('display__none'); // добавляем окну диалог свойство display: none
   removeClass(pinElements, 'pin--active');
 });
 
