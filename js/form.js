@@ -31,16 +31,16 @@ var adressApart = document.getElementById('address');
 // задаем ограничения для полей формы
 function setValues() {
   price.required = true;
-  
+
   price.addEventListener('blur', function maxMinPrice() {
-  if (price.value > maxValuePrice) {
-    price.value = maxValuePrice;
-  }
-  if (price.value < minValuePrice) {
-    price.value = minValuePrice;
-  }
+    if (price.value > maxValuePrice) {
+      price.value = maxValuePrice;
+    }
+    if (price.value < minValuePrice) {
+      price.value = minValuePrice;
+    }
 });
-  
+
   titleAd.minLength = titleMinLength;
   titleAd.maxLength = titleMaxLength;
   titleAd.required = true;
