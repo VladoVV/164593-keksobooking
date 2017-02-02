@@ -28,15 +28,15 @@ var titleMinLength = 30;
 var titleMaxLength = 100;
 var adressApart = document.getElementById('address');
 
-//задаем ограничения для полей формы
+// задаем ограничения для полей формы
 function setValues() {
   price.required = true;
   if (price.value > maxValuePrice) {
     price.value = maxValuePrice;
-  };
+  }
   if (price.value < minValuePrice) {
     price.value = minValuePrice;
-  };
+  }
 
   titleAd.minLength = titleMinLength;
   titleAd.maxLength = titleMaxLength;
