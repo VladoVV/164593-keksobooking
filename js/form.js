@@ -1,4 +1,4 @@
-'use strick';
+'use strict';
 
 var pinElements = document.querySelectorAll('.pin'); //  выбираем все элементы с классом pin
 
