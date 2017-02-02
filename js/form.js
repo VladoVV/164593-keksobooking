@@ -30,7 +30,7 @@ function removeClass(collection, className) {
 for (var i = 0; i < pinElements.length; i++) {
   pinElements[i].addEventListener('click', function () {
     removeClass(pinElements, 'pin--active');
-    this.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
+    event.currentTarget.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
     dialog.style.display = 'block'; //  открываем окно диалог
   });
 }
