@@ -39,7 +39,7 @@ function setValues() {
     if (price.value < minValuePrice) {
       price.value = minValuePrice;
     }
-});
+  });
 
   titleAd.minLength = titleMinLength;
   titleAd.maxLength = titleMaxLength;
