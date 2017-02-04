@@ -652,10 +652,6 @@ select option:hover {
     border-radius: 50%;
 }
 
-.display__block {
-  display: block;
-}
-
-.display__none {
+.dialog-hidden {
   display: none;
 }

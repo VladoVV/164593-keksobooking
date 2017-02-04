@@ -61,16 +61,19 @@ for (var i = 0; i < pinElements.length; i++) {
   pinElements[i].addEventListener('click', function () {
     removeClass(pinElements, 'pin--active');
     event.currentTarget.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
-    dialog.classList.remove('display__none'); //  открываем окно диалог
+    dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
   });
 }
 
 
 // ---закрываем окно диалог при клике на dialog__close ---//
-dialogClose.addEventListener('click', function () {
-  dialog.classList.add('display__none'); // добавляем окну диалог свойство display: none
+function closingDialog() {
+  dialog.classList.add('dialog-hidden'); // добавляем окну диалог свойство display: none
   removeClass(pinElements, 'pin--active');
-});
+}
+
+dialogClose.addEventListener('click', closingDialog);
+
 
 
 // ---синхронизации данных между типом жилья и стоимостью (type & price)---//
