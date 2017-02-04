@@ -75,7 +75,6 @@ function closingDialog() {
 dialogClose.addEventListener('click', closingDialog);
 
 
-
 // ---синхронизации данных между типом жилья и стоимостью (type & price)---//
 // изменяем стоимсть в зависимости от типа жилья
 typeApart.addEventListener('change', function () {
