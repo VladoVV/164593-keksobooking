@@ -57,14 +57,29 @@ function removeClass(collection, className) {
 }
 
 // ---создаем цикл для отслеживания события на каждом элементе из коллекции с классом пин---//
-for (var i = 0; i < pinElements.length; i++) {
-  pinElements[i].addEventListener('click', function () {
-    removeClass(pinElements, 'pin--active');
-    event.currentTarget.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
-    dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
-  });
-}
+//for (var i = 0; i < pinElements.length; i++) {
+//
+//  pinElements[i].addEventListener('click', function () {
+//    removeClass(pinElements, 'pin--active');
+//    event.currentTarget.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
+//    dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
+//  });
+//
+//  pinElements[i].addEventListener('keydown', function (event) {
+//    if (event.keyCode === 13) {
+//      removeClass(pinElements, 'pin--active');
+//      event.currentTarget.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
+//      dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
+//    }
+//  });
+//}
 
+var tokyoPinMap = document.querySelector('.tokyo__pin-map');
+tokyoPinMap.addEventListener('click', function (event) {
+    removeClass(pinElements, 'pin--active');
+    event.target.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
+    dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
+});
 
 // ---закрываем окно диалог при клике на dialog__close ---//
 function closingDialog() {
@@ -73,7 +88,11 @@ function closingDialog() {
 }
 
 dialogClose.addEventListener('click', closingDialog);
-
+dialogClose.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    closingDialog;
+  }
+});
 
 // ---синхронизации данных между типом жилья и стоимостью (type & price)---//
 // изменяем стоимсть в зависимости от типа жилья
