@@ -63,8 +63,8 @@ var tokyoPinMap = document.querySelector('.tokyo__pin-map');
 var hzName = function (event) { // ХЗ как назвать эту функцию?
   var target = event.target;
   if (target.tagName === 'IMG') { // проверяем, если событие произошло на картинке, то
-      target = target.parentNode; // переопределяем таргет на родителя картинки (именно в заданной разметке)
-    }
+    target = target.parentNode; // переопределяем таргет на родителя картинки (именно в заданной разметке)
+  }
   removeClass(pinElements, 'pin--active');
   target.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
   dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
