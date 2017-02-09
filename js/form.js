@@ -60,19 +60,19 @@ function removeClass(collection, className) {
 // ---Делегируем для отслеживания события на каждом элементе из коллекции с классом пин---//
 var tokyoPinMap = document.querySelector('.tokyo__pin-map');
 
-var hzName = function(event) { //ХЗ как назвать эту функцию?
+var hzName = function (event) { // ХЗ как назвать эту функцию?
   var target = event.target;
-    if (target.tagName === 'IMG') { // проверяем, если событие произошло на картинке, то
+  if (target.tagName === 'IMG') { // проверяем, если событие произошло на картинке, то
       target = target.parentNode; // переопределяем таргет на родителя картинки (именно в заданной разметке)
     }
-    removeClass(pinElements, 'pin--active');
-    target.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
-    dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
-    dialogClose.setAttribute('aria-pressed', 'true'); // добавляем атрибут тру, при открытии окна
+  removeClass(pinElements, 'pin--active');
+  target.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
+  dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
+  dialogClose.setAttribute('aria-pressed', 'true'); // добавляем атрибут тру, при открытии окна
 };
 
 tokyoPinMap.addEventListener('click', function (event) {
-   hzName(event);
+  hzName(event);
 });
 
 tokyoPinMap.addEventListener('keydown', function (event) {
@@ -90,9 +90,9 @@ function closingDialog() {
 
 dialogClose.addEventListener('click', closingDialog);
 
-dialogClose.addEventListener('keydown', function(event) {
+dialogClose.addEventListener('keydown', function (event) {
   if (event.keyCode === ENTER_KEYCODE) {
-    closingDialog;
+    closingDialog();
     dialogClose.setAttribute('aria-pressed', 'false');
   }
 });
