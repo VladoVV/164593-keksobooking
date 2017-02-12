@@ -27,6 +27,7 @@ var titleAd = document.getElementById('title');
 var titleMinLength = 30;
 var titleMaxLength = 100;
 var adressApart = document.getElementById('address');
+var ENTER_KEYCODE = 13;
 
 // задаем ограничения для полей формы
 function setValues() {
@@ -56,24 +57,45 @@ function removeClass(collection, className) {
   }
 }
 
-// ---создаем цикл для отслеживания события на каждом элементе из коллекции с классом пин---//
-for (var i = 0; i < pinElements.length; i++) {
-  pinElements[i].addEventListener('click', function () {
-    removeClass(pinElements, 'pin--active');
-    event.currentTarget.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
-    dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
-  });
-}
+// ---Делегируем для отслеживания события на каждом элементе из коллекции с классом пин---//
+var tokyoPinMap = document.querySelector('.tokyo__pin-map');
 
+var hzName = function (event) { // ХЗ как назвать эту функцию?
+  var target = event.target;
+  if (target.tagName === 'IMG') { // проверяем, если событие произошло на картинке, то
+    target = target.parentNode; // переопределяем таргет на родителя картинки (именно в заданной разметке)
+  }
+  removeClass(pinElements, 'pin--active');
+  target.classList.add('pin--active'); //  элементу на котором произошло событие добавляем класс pin--active
+  dialog.classList.remove('dialog-hidden'); //  открываем окно диалог
+  dialogClose.setAttribute('aria-pressed', 'true'); // добавляем атрибут тру, при открытии окна
+};
+
+tokyoPinMap.addEventListener('click', function (event) {
+  hzName(event);
+});
+
+tokyoPinMap.addEventListener('keydown', function (event) {
+  if (event.keyCode === ENTER_KEYCODE) {
+    hzName(event);
+  }
+});
 
 // ---закрываем окно диалог при клике на dialog__close ---//
 function closingDialog() {
   dialog.classList.add('dialog-hidden'); // добавляем окну диалог свойство display: none
   removeClass(pinElements, 'pin--active');
+  dialogClose.setAttribute('aria-pressed', 'false');
 }
 
 dialogClose.addEventListener('click', closingDialog);
 
+dialogClose.addEventListener('keydown', function (event) {
+  if (event.keyCode === ENTER_KEYCODE) {
+    closingDialog();
+    dialogClose.setAttribute('aria-pressed', 'false');
+  }
+});
 
 // ---синхронизации данных между типом жилья и стоимостью (type & price)---//
 // изменяем стоимсть в зависимости от типа жилья
