@@ -8,7 +8,8 @@ function synchronizeFields(elementName1, elementName2, arrayElements1, arrayElem
 
   node1.addEventListener('change', function () {
     //node2[elementProperty] = node1[elementProperty];
-    node2[elementProperty] = arrayElements2[arrayElements1.indexOf(node1.elementProperty)];
+    node2[elementProperty] = arrayElements2[arrayElements1.indexOf(node1[elementProperty])];
+    
     console.log(node2[elementProperty]);
     console.log(arrayElements1[node1.selectedIndex]);
     console.log(elementProperty);
