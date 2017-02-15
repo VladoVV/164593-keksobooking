@@ -51,25 +51,25 @@ setValues();
 initializePins();
 
 
-// ---синхронизации данных между типом жилья и стоимостью (type & price)---//
-// изменяем стоимсть в зависимости от типа жилья
-typeApart.addEventListener('change', function () {
-  price.min = price.value = prices[typeApart.selectedIndex];
-});
-
-
-// изменяем тип жилья в зависимости от стоимости
-price.addEventListener('change', function () {
-  if (price.value >= minPriceApart && price.value < minPricePalace) {
-    typeApart.selectedIndex = 0;
-  }
-  if (price.value >= minPriceShack && price.value < minPriceApart) {
-    typeApart.selectedIndex = 1;
-  }
-  if (price.value >= minPricePalace) {
-    typeApart.selectedIndex = 2;
-  }
-});
+//// ---синхронизации данных между типом жилья и стоимостью (type & price)---//
+//// изменяем стоимсть в зависимости от типа жилья
+//typeApart.addEventListener('change', function () {
+//  price.min = price.value = prices[typeApart.selectedIndex];
+//});
+//
+//
+//// изменяем тип жилья в зависимости от стоимости
+//price.addEventListener('change', function () {
+//  if (price.value >= minPriceApart && price.value < minPricePalace) {
+//    typeApart.selectedIndex = 0;
+//  }
+//  if (price.value >= minPriceShack && price.value < minPriceApart) {
+//    typeApart.selectedIndex = 1;
+//  }
+//  if (price.value >= minPricePalace) {
+//    typeApart.selectedIndex = 2;
+//  }
+//});
 
 
 // синхронизация данных между кол-вом комнат и кол-вом гостей (room_number & capacity)//
@@ -88,8 +88,10 @@ price.addEventListener('change', function () {
 //});
 //var synchronizeFields;
 
-synchronizeFields('time', 'timeout', ['12', '13', '14'], ['12', '13', '14'], 'selectedIndex');
-//synchronizeFields('room_number', 'capacity', ['1 комната', '2 комнаты', '100 комнат'], ['не для гостей', 'для 3 гостей', 'для 3 гостей'], 'value');
+synchronizeFields('time', 'timeout', ['После 12', 'После 13', 'После 14'], ['Выезд до 12', 'Выезд до 13', 'Выезд до 14'], 'value');
+synchronizeFields('room_number', 'capacity', ['1 комната', '2 комнаты', '100 комнат'], ['не для гостей', 'для 3 гостей', 'для 3 гостей'], 'value');
+synchronizeFields('type', 'price', ['Квартира', 'Лачуга', 'Дворец'], ['1000', '0', '10000'], 'value');
+
 //// переменные для синхронизации данных между временем заезда и временем выезда (time & timeout)
 //var timeSelect = document.getElementById('time'); //  получаем список вариантов для select time
 //var timeOutSelect = document.getElementById('timeout'); //  получаем список вариантов для select timeout

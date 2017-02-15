@@ -9,17 +9,11 @@ function synchronizeFields(elementName1, elementName2, arrayElements1, arrayElem
   node1.addEventListener('change', function () {
     //node2[elementProperty] = node1[elementProperty];
     node2[elementProperty] = arrayElements2[arrayElements1.indexOf(node1[elementProperty])];
-    
-    console.log(node2[elementProperty]);
-    console.log(arrayElements1[node1.selectedIndex]);
-    console.log(elementProperty);
-    console.log(node1.selectedIndex);
-  
   });
 
   node2.addEventListener('change', function () {
     //node1[elementProperty] = node2[elementProperty];
-    node1[elementProperty] = arrayElements1[arrayElements2.indexOf(node2.elementProperty)];
+    node1[elementProperty] = arrayElements1[arrayElements2.indexOf(node2[elementProperty])];
   });
   
 };
@@ -79,19 +73,19 @@ var minValuePrice = 1000;
 
 // ---синхронизации данных между типом жилья и стоимостью (type & price)---//
 // изменяем стоимсть в зависимости от типа жилья
-typeApart.addEventListener('change', function () {
-  price.min = price.value = prices[typeApart.selectedIndex];
-});
-
-// изменяем тип жилья в зависимости от стоимости
-price.addEventListener('change', function () {
-  if (price.value >= minPriceApart && price.value < minPricePalace) {
-    typeApart.selectedIndex = 0;
-  }
-  if (price.value >= minPriceShack && price.value < minPriceApart) {
-    typeApart.selectedIndex = 1;
-  }
-  if (price.value >= minPricePalace) {
-    typeApart.selectedIndex = 2;
-  }
-});
+//typeApart.addEventListener('change', function () {
+//  price.min = price.value = prices[typeApart.selectedIndex];
+//});
+//
+//// изменяем тип жилья в зависимости от стоимости
+//price.addEventListener('change', function () {
+//  if (price.value >= minPriceApart && price.value < minPricePalace) {
+//    typeApart.selectedIndex = 0;
+//  }
+//  if (price.value >= minPriceShack && price.value < minPriceApart) {
+//    typeApart.selectedIndex = 1;
+//  }
+//  if (price.value >= minPricePalace) {
+//    typeApart.selectedIndex = 2;
+//  }
+//});
