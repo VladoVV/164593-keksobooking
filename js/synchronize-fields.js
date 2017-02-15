@@ -6,11 +6,12 @@ function synchronizeFields(elementName1, elementName2, arrayElements1, arrayElem
   var domElementName1 = document.getElementById(elementName1);
   var domElementName2 = document.getElementById(elementName2);
 
-  domElementName1.addEventListener('change', function () {
-    domElementName2.elementProperty = arrayElements1[domElementName1.selectedIndex];
-    console.log(domElementName2.elementProperty);
+  domElementName1.addEventListener('input', function () {
+    domElementName2[elementProperty] = arrayElements1[domElementName1.selectedIndex];
+    console.log(domElementName2[elementProperty]);
     console.log(arrayElements1[domElementName1.selectedIndex]);
     console.log(elementProperty);
+    console.log(domElementName1.selectedIndex);
   
   });
 
