@@ -3,20 +3,22 @@
 //synchronizeFields('time', 'timeout', ['12', '13', '14'], ['12', '13', '14'], 'value');
 
 function synchronizeFields(elementName1, elementName2, arrayElements1, arrayElements2, elementProperty) {
-  var domElementName1 = document.getElementById(elementName1);
-  var domElementName2 = document.getElementById(elementName2);
+  var node1 = document.getElementById(elementName1);
+  var node2 = document.getElementById(elementName2);
 
-  domElementName1.addEventListener('input', function () {
-    domElementName2[elementProperty] = arrayElements1[domElementName1.selectedIndex];
-    console.log(domElementName2[elementProperty]);
-    console.log(arrayElements1[domElementName1.selectedIndex]);
+  node1.addEventListener('change', function () {
+    //node2[elementProperty] = node1[elementProperty];
+    node2[elementProperty] = arrayElements2[arrayElements1.indexOf(node1.elementProperty)];
+    console.log(node2[elementProperty]);
+    console.log(arrayElements1[node1.selectedIndex]);
     console.log(elementProperty);
-    console.log(domElementName1.selectedIndex);
+    console.log(node1.selectedIndex);
   
   });
 
-  domElementName2.addEventListener('change', function () {
-    domElementName1.elementProperty = arrayElements2[domElementName2.selectedIndex];
+  node2.addEventListener('change', function () {
+    //node1[elementProperty] = node2[elementProperty];
+    node1[elementProperty] = arrayElements1[arrayElements2.indexOf(node2.elementProperty)];
   });
   
 };

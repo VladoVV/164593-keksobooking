@@ -88,7 +88,7 @@ price.addEventListener('change', function () {
 //});
 //var synchronizeFields;
 
-synchronizeFields('time', 'timeout', ['12', '13', '14'], ['12', '13', '14'], 'value');
+synchronizeFields('time', 'timeout', ['12', '13', '14'], ['12', '13', '14'], 'selectedIndex');
 //synchronizeFields('room_number', 'capacity', ['1 комната', '2 комнаты', '100 комнат'], ['не для гостей', 'для 3 гостей', 'для 3 гостей'], 'value');
 //// переменные для синхронизации данных между временем заезда и временем выезда (time & timeout)
 //var timeSelect = document.getElementById('time'); //  получаем список вариантов для select time
