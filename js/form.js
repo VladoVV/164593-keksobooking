@@ -3,18 +3,9 @@
 var initializePins;
 var synchronizeFields;
 
-
-
-
-
-
 // переменные для синхронизации данных между типом жилья и стоимостью (type & price)
 
 var price = document.getElementById('price');
-var minPriceApart = 1000;
-var minPricePalace = 10000;
-var minPriceShack = 0;
-
 var maxValuePrice = 1000000;
 var minValuePrice = 1000;
 var titleAd = document.getElementById('title');
@@ -49,4 +40,3 @@ initializePins();
 synchronizeFields('time', 'timeout', ['После 12', 'После 13', 'После 14'], ['Выезд до 12', 'Выезд до 13', 'Выезд до 14'], 'value');
 synchronizeFields('room_number', 'capacity', ['1 комната', '2 комнаты', '100 комнат'], ['не для гостей', 'для 3 гостей', 'для 3 гостей'], 'value');
 synchronizeFields('type', 'price', ['Квартира', 'Лачуга', 'Дворец'], ['1000', '0', '10000'], 'value');
-

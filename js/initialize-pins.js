@@ -6,7 +6,7 @@ var dialogClose = dialog.querySelector('.dialog__close'); //  ищем эеме�
 
 var ENTER_KEYCODE = 13;
 
-var initializePins = function () {
+function initializePins() {
 
   //  перебираем все элементы с классом и удаляем класс//
   function removeClass(collection, className) {
