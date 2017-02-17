@@ -54,4 +54,4 @@ window.initializePins = function () {
       dialogClose.setAttribute('aria-pressed', 'false');
     }
   });
-}
+};

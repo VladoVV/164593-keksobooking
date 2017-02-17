@@ -11,4 +11,4 @@ window.synchronizeFields = function (elementName1, elementName2, arrayElements1,
   node2.addEventListener('change', function () {
     node1[elementProperty] = arrayElements1[arrayElements2.indexOf(node2[elementProperty])];
   });
-}
+};
