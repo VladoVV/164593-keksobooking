@@ -54,4 +54,5 @@ function initializePins() {
       dialogClose.setAttribute('aria-pressed', 'false');
     }
   });
-};
+}
+initializePins;
