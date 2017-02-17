@@ -1,6 +1,6 @@
 'use strict';
 
-function synchronizeFields(elementName1, elementName2, arrayElements1, arrayElements2, elementProperty) {
+window.synchronizeFields = function (elementName1, elementName2, arrayElements1, arrayElements2, elementProperty) {
   var node1 = document.getElementById(elementName1);
   var node2 = document.getElementById(elementName2);
 
