@@ -1,4 +1,10 @@
 'use strict';
+var pinElements = document.querySelectorAll('.pin'); //  выбираем все элементы с классом pin
+//  ---переменные для закрытия окна диалог--- //
+var dialog = document.querySelector('.dialog'); //  ищем окно диалог
+var dialogClose = dialog.querySelector('.dialog__close'); //  ищем эемент для закрытия окна диалог
+
+var ENTER_KEYCODE = 13;
 
 var initializePins = function () {
 

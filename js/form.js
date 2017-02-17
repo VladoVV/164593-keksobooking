@@ -1,26 +1,27 @@
 'use strict';
 
-var pinElements = document.querySelectorAll('.pin'); //  выбираем все элементы с классом pin
+var initializePins;
+var synchronizeFields;
 
-//  ---переменные для закрытия окна диалог--- //
-var dialog = document.querySelector('.dialog'); //  ищем окно диалог
-var dialogClose = dialog.querySelector('.dialog__close'); //  ищем эемент для закрытия окна диалог
+
+
+
 
 
 // переменные для синхронизации данных между типом жилья и стоимостью (type & price)
-var typeApart = document.getElementById('type');
+
 var price = document.getElementById('price');
 var minPriceApart = 1000;
 var minPricePalace = 10000;
 var minPriceShack = 0;
-var prices = [minPriceApart, minPriceShack, minPricePalace];
+
 var maxValuePrice = 1000000;
 var minValuePrice = 1000;
 var titleAd = document.getElementById('title');
 var titleMinLength = 30;
 var titleMaxLength = 100;
 var adressApart = document.getElementById('address');
-var ENTER_KEYCODE = 13;
+
 
 // задаем ограничения для полей формы
 function setValues() {
