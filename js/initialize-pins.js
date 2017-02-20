@@ -18,7 +18,7 @@ window.initializePins = function () {
   // ---Делегируем для отслеживания события на каждом элементе из коллекции с классом пин---//
   var tokyoPinMap = document.querySelector('.tokyo__pin-map');
 
-  var hzName = function (event) { // ХЗ как назвать эту функцию?
+  var handlePinClick = function (event) {
     var target = event.target;
     if (target.tagName === 'IMG') { // проверяем, если событие произошло на картинке, то
       target = target.parentNode; // переопределяем таргет на родителя картинки (именно в заданной разметке)
@@ -29,13 +29,11 @@ window.initializePins = function () {
     dialogClose.setAttribute('aria-pressed', 'true'); // добавляем атрибут тру, при открытии окна
   };
 
-  tokyoPinMap.addEventListener('click', function (event) {
-    hzName(event);
-  });
+  tokyoPinMap.addEventListener('click', handlePinClick);
 
   tokyoPinMap.addEventListener('keydown', function (event) {
     if (event.keyCode === ENTER_KEYCODE) {
-      hzName(event);
+      handlePinClick(event);
     }
   });
 

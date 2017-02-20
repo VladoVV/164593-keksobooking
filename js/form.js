@@ -1,7 +1,7 @@
 'use strict';
 
-var initializePins;
-var synchronizeFields;
+window.initializePins;
+window.synchronizeFields;
 
 // переменные для синхронизации данных между типом жилья и стоимостью (type & price)
 
