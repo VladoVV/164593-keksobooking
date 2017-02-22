@@ -1,12 +1,12 @@
 'use strict';
 
-window.synchronizeFields = function (elementName1, elementName2, arrayElements1, arrayElements2, elementProperty) {
+window.synchronizeFields = function (element1, element2, values1, values2, syncProperty) {
 
-  document.getElementById(elementName1).addEventListener('change', function () {
-    document.getElementById(elementName2)[elementProperty] = arrayElements2[arrayElements1.indexOf(document.getElementById(elementName1)[elementProperty])];
+  document.getElementById(element1).addEventListener('change', function () {
+    document.getElementById(element2)[syncProperty] = values2[values1.indexOf(document.getElementById(element1)[syncProperty])];
   });
 
-  document.getElementById(elementName2).addEventListener('change', function () {
-    document.getElementById(elementName1)[elementProperty] = arrayElements1[arrayElements2.indexOf(document.getElementById(elementName2)[elementProperty])];
+  document.getElementById(element2).addEventListener('change', function () {
+    document.getElementById(element1)[syncProperty] = values1[values2.indexOf(document.getElementById(element2)[syncProperty])];
   });
 };

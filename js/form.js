@@ -12,7 +12,12 @@ var titleAd = document.getElementById('title');
 var titleMinLength = 30;
 var titleMaxLength = 100;
 var adressApart = document.getElementById('address');
-
+var times = ['После 12', 'После 13', 'После 14'];
+var timeOuts = ['Выезд до 12', 'Выезд до 13', 'Выезд до 14'];
+var roomNumbers = ['1 комната', '2 комнаты', '100 комнат'];
+var capacities = ['не для гостей', 'для 3 гостей', 'для 3 гостей'];
+var typesOfApartment = ['Квартира', 'Лачуга', 'Дворец'];
+var prices = ['1000', '0', '10000'];
 
 // задаем ограничения для полей формы
 function setValues() {
@@ -37,6 +42,6 @@ setValues();
 
 initializePins();
 
-synchronizeFields('time', 'timeout', ['После 12', 'После 13', 'После 14'], ['Выезд до 12', 'Выезд до 13', 'Выезд до 14'], 'value');
-synchronizeFields('room_number', 'capacity', ['1 комната', '2 комнаты', '100 комнат'], ['не для гостей', 'для 3 гостей', 'для 3 гостей'], 'value');
-synchronizeFields('type', 'price', ['Квартира', 'Лачуга', 'Дворец'], ['1000', '0', '10000'], 'value');
+synchronizeFields('time', 'timeout', times, timeOuts, 'value');
+synchronizeFields('room_number', 'capacity', roomNumbers, capacities, 'value');
+synchronizeFields('type', 'price', typesOfApartment, prices, 'value');
