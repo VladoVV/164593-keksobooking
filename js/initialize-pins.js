@@ -53,5 +53,5 @@
         dialogClose.setAttribute('aria-pressed', 'false');
       }
     });
-  };                                      
+  };
 })();
